@@ -9,7 +9,7 @@ namespace RepositoryAccessLayer
         public async Task<List<ReimbursementReq>> RequestsAsync(int type)
 
         {
-            SqlConnection conn = new SqlConnection("Server=tcp:dbpro.database.windows.net,1433;Initial Catalog=Project1;Persist Security Info=False;User ID=mominur;Password=A123456789a;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            SqlConnection conn = new SqlConnection("");
             using (SqlCommand command = new SqlCommand($"SELECT * FROM ReimbursementApp WHERE Status = @type", conn))
             {
 
@@ -34,7 +34,7 @@ namespace RepositoryAccessLayer
         {
            // throw new NotImplementedException();
 
-             SqlConnection conn = new SqlConnection("Server=tcp:dbpro.database.windows.net,1433;Initial Catalog=Project1;Persist Security Info=False;User ID=mominur;Password=A123456789a;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+             SqlConnection conn = new SqlConnection("");
             using (SqlCommand command = new SqlCommand($"INSERT INTO Employees (EmployeeID,FirstName,LastName,IsManager,Email, Password) VALUES(@id, @f,@l,@i,@e,@p);", conn))
 
             {
@@ -62,7 +62,7 @@ namespace RepositoryAccessLayer
 
         public async Task<UpdateReRequestDto> UpdateRequestAsync(Guid reimbursementId, int status)
         {
-            SqlConnection conn = new SqlConnection("Server=tcp:dbpro.database.windows.net,1433;Initial Catalog=Project1;Persist Security Info=False;User ID=mominur;Password=A123456789a;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            SqlConnection conn = new SqlConnection("");
             using (SqlCommand command = new SqlCommand($"UPDATE ReimbursementApp SET Status = @status WHERE ReimbursementID = @id", conn))
             {
                 command.Parameters.AddWithValue("@id", reimbursementId);
@@ -99,7 +99,7 @@ namespace RepositoryAccessLayer
 
         public async Task<bool> IsManagerAsync(Guid employeeID)
         {
-            SqlConnection conn = new SqlConnection("Server=tcp:dbpro.database.windows.net,1433;Initial Catalog=Project1;Persist Security Info=False;User ID=mominur;Password=A123456789a;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            SqlConnection conn = new SqlConnection("");
             using (SqlCommand command = new SqlCommand($"SELECT IsManager FROM Employees WHERE EmployeeID = @id", conn))
             {
 
@@ -120,7 +120,7 @@ namespace RepositoryAccessLayer
 
         public async Task<UpdateReRequestDto> UpdateRequestByIdAsync(Guid reimbursementId)
         {
-            SqlConnection conn = new SqlConnection("Server=tcp:dbpro.database.windows.net,1433;Initial Catalog=Project1;Persist Security Info=False;User ID=mominur;Password=A123456789a;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            SqlConnection conn = new SqlConnection("");
             using (SqlCommand command = new SqlCommand($"SELECT ReimbursementID,FirstName, LastName, Status FROM Employees LEFT JOIN  ReimbursementApp ON EmployeeID = FK_EmployeeId WHERE ReimbursementID = @reimbursementId", conn))
             {
 
@@ -146,7 +146,7 @@ namespace RepositoryAccessLayer
         {
            // throw new NotImplementedException();
 
-             SqlConnection conn = new SqlConnection("Server=tcp:dbpro.database.windows.net,1433;Initial Catalog=Project1;Persist Security Info=False;User ID=mominur;Password=A123456789a;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+             SqlConnection conn = new SqlConnection("");
             using (SqlCommand command = new SqlCommand($"INSERT INTO ReimbursementApp (ReimbursementID,FK_EmployeeId,Details,Amount) VALUES(@id,@fk,@d,@a);", conn))
 
             {
@@ -176,7 +176,7 @@ namespace RepositoryAccessLayer
         public async Task<List<AllTicket>> AllTicketAsync(int type)
 
         {
-            SqlConnection conn = new SqlConnection("Server=tcp:dbpro.database.windows.net,1433;Initial Catalog=Project1;Persist Security Info=False;User ID=mominur;Password=A123456789a;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            SqlConnection conn = new SqlConnection("");
             using (SqlCommand command = new SqlCommand($"SELECT * FROM ReimbursementApp", conn))
             {
 
@@ -203,7 +203,7 @@ namespace RepositoryAccessLayer
         {
         
         
-            SqlConnection conn = new SqlConnection("Server=tcp:dbpro.database.windows.net,1433;Initial Catalog=Project1;Persist Security Info=False;User ID=mominur;Password=A123456789a;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            SqlConnection conn = new SqlConnection("");
             using (SqlCommand command = new SqlCommand($"SELECT Email, Password FROM Employees WHERE Email = @email AND Password = @password", conn))
             {
 
